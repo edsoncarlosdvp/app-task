@@ -2,7 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Data",
-    "\\Data\\Map"
+    "\\Data\\Map",
+    "\\Models"
   ],
+  "SelectedNode": "\\AppTask.sln",
   "PreviewInSolutionExplorer": false
 }

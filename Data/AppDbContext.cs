@@ -7,7 +7,7 @@ namespace AppTask.Data
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-        public DbSet<TaskModels> tasks { get; set; }
+        public DbSet<TaskModels> Tasks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\Backend\\C#\\AppTask\\AppTask.csproj": {}
+    "C:\\Projects\\DTI\\Pocs\\C#\\AppTask\\AppTask.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\Backend\\C#\\AppTask\\AppTask.csproj": {
+    "C:\\Projects\\DTI\\Pocs\\C#\\AppTask\\AppTask.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Backend\\C#\\AppTask\\AppTask.csproj",
+        "projectUniqueName": "C:\\Projects\\DTI\\Pocs\\C#\\AppTask\\AppTask.csproj",
         "projectName": "AppTask",
-        "projectPath": "C:\\Projects\\Backend\\C#\\AppTask\\AppTask.csproj",
-        "packagesPath": "C:\\Users\\Edson\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Backend\\C#\\AppTask\\obj\\",
+        "projectPath": "C:\\Projects\\DTI\\Pocs\\C#\\AppTask\\AppTask.csproj",
+        "packagesPath": "C:\\Users\\DTI Digital\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\DTI\\Pocs\\C#\\AppTask\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Edson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DTI Digital\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -74,12 +74,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.17, 5.0.17]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
