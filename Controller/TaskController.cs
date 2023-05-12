@@ -38,12 +38,12 @@ namespace AppTask.Controller
         {
             if(!ModelState.IsValid) return BadRequest(ModelState);
 
-            var task = new TaskModels
+            var task = new Task
             {
-                Done = false,
+                Status = false,
                 Title = models.Title,
             };
-            await context.TaskModel.AddAsync(models);
+            await context.Tasks.AddAsync(task);
             await context.SaveChangesAsync();
         }
     }
