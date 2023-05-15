@@ -43,6 +43,7 @@ namespace AppTask.Controller
             {
                 Status = false,
                 Name = model.Name,
+                Date = DateTime.Now,
             };
             
             try
