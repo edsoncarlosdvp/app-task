@@ -5,6 +5,6 @@ namespace AppTask.ViewModels
     public class CreateTodoViewModels
     {
         [Required]
-        public string Title { get; set; }
+        public string Name { get; set; }
     }
 }

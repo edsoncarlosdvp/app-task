@@ -1,7 +1,9 @@
 ﻿using AppTask.Data;
+using AppTask.Models;
 using AppTask.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
 
 namespace AppTask.Controller
@@ -30,21 +32,78 @@ namespace AppTask.Controller
             return task == null ? NotFound() : Ok(task);
         }
 
-        [HttpPost]
-        [Route("tasks")]
+        [HttpPost("tasks")]
         public async Task<IActionResult> PostTasksAsync(
             [FromServices] AppDbContext context,
-            [FromBody]CreateTodoViewModels models)
+            [FromBody] CreateTodoViewModels model)
         {
-            if(!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid) return BadRequest();
 
-            var task = new Task
+            var task = new TaskModels
             {
                 Status = false,
-                Title = models.Title,
+                Name = model.Name,
             };
-            await context.Tasks.AddAsync(task);
-            await context.SaveChangesAsync();
+            
+            try
+            {
+                await context.Tasks.AddAsync(task);
+                await context.SaveChangesAsync();
+                return Created($"v1/tasks/{task.Id}", task);
+            }
+            catch (Exception e) 
+            { 
+                return BadRequest(e);
+            }
+        }
+
+        [HttpPut("tasks/{id}")]
+        public async Task<IActionResult> PutTasksAsync(
+            [FromServices] AppDbContext context,
+            [FromBody] CreateTodoViewModels model,
+            [FromRoute] int id)
+        {
+            if (!ModelState.IsValid) return BadRequest();
+
+            var task = await context.Tasks.FirstOrDefaultAsync(task => task.Id == id);
+
+            if (task == null) return NotFound();
+
+            try
+            {
+                task.Name = model.Name;
+
+                context.Tasks.Update(task);
+                await context.SaveChangesAsync();
+                return Ok(task);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
+
+        [HttpDelete("tasks/{id}")]
+        public async Task<IActionResult> DeleteTasksAsync(
+            [FromServices] AppDbContext context,
+            [FromRoute] int id)
+        {
+            if (!ModelState.IsValid) return BadRequest();
+
+            var task = await context.Tasks.FirstOrDefaultAsync(task => task.Id == id);
+
+            if (task == null) return NotFound();
+
+            try
+            {
+                context.Tasks.Remove(task);
+                await context.SaveChangesAsync();
+                return Ok("Excluído com sucesso!");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
         }
     }
 }
